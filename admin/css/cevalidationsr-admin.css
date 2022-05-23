@@ -1,0 +1,39 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+.textboxwidth10 {
+    width: 10em;
+    min-width: 10em;
+}
+
+.textboxwidth15 {
+    width: 15em;
+    min-width: 15em;
+}
+
+.textboxwidth20 {
+    width: 20em;
+    min-width: 20em;
+}
+
+.textboxwidth25 {
+    width: 25em;
+    min-width: 25em;
+}
+
+.textboxwidth30 {
+    width: 30em;
+    min-width: 30em;
+}
+
+.textboxwidth35 {
+    width: 35em;
+    min-width: 35em;
+}
+
+.textboxwidth40 {
+    width: 40em;
+    min-width: 40em;
+}

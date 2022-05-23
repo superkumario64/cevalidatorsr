@@ -1,0 +1,163 @@
+<?php
+
+/**
+ * Fired prior to plugin activation
+ *
+ * @link       https://www.cecredentialtrust.com
+ * @since      1.0.0
+ *
+ * @package    CeValidationsr
+ * @subpackage CeValidationsr/includes
+ */
+
+/**
+ * Fired prior to plugin activation.
+ *
+ * This class defines all code necessary to run prior to the plugin's activation.
+ *
+ * @since      1.0.0
+ * @package    CeValidationsr
+ * @subpackage CeValidationsr/includes
+ * @author     R. A. Joseph <rjoseph@paradigm-corp.com>
+ */
+class CeValidationsr_Activation_Check
+{
+  /**
+   * The unique identifier of this plugin.
+   *
+   * @since    1.0.0
+   * @access   protected
+   * @var      string    $plugin_name    The string used to uniquely identify this plugin.
+   */
+  protected $plugin_name;
+
+  /**
+   * The current version of the plugin.
+   *
+   * @since    1.0.0
+   * @access   protected
+   * @var      string    $version    The current version of the plugin.
+   */
+  protected $version;
+
+  /**
+   * Define the core functionality of the plugin.
+   *
+   * Set the plugin name and the plugin version that can be used throughout the plugin.
+   * Load the dependencies, define the locale, and set the hooks for the admin area and
+   * the public-facing side of the site.
+   *
+   * @since    1.0.0
+   */
+  public function __construct()
+  {
+    if (defined('CEVALIDATIONSR_VERSION')) {
+      $this->version = CEVALIDATIONSR_VERSION;
+    } else {
+      $this->version = '1.0.0';
+    }
+    $this->plugin_name = 'cevalidationsr';
+  }
+
+  /**
+   * Determines whether a plugin is active.
+   *
+   * Only plugins installed in the plugins/ folder can be active.
+   *
+   * Plugins in the mu-plugins/ folder can't be "activated," so this function will
+   * return false for those plugins.
+   *
+   * For more information on this and similar theme functions, check out
+   * the {@link https://developer.wordpress.org/themes/basics/conditional-tags/
+   * Conditional Tags} article in the Theme Developer Handbook.
+   *
+   * @since 2.5.0
+   *
+   * @param string $plugin Path to the plugin file relative to the plugins directory.
+   * @return bool True, if in the active plugins list. False, not in the list.
+   */
+  static function is_plugin_active($plugin)
+  {
+    return in_array($plugin, (array)get_option('active_plugins', array())) || is_plugin_active_for_network($plugin);
+  }
+
+  /**
+   * 	The primary sanity check, automatically disable the plugin on activation if it doesn't meet minimum requirements.
+   * https://pento.net/2014/02/18/dont-let-your-plugin-be-activated-on-incompatible-sites/
+   * Long Description.
+   *
+   * @since    1.0.0
+   */
+  public function activation_check()
+  {
+    if (!self::compatible_version()) {
+      deactivate_plugins(plugin_basename(__FILE__));
+      wp_die(__('The CeValidation SR Plugin requires WordPress 3.7 or higher!', get_plugin_name()));
+    }
+  }
+
+  // The backup sanity check, in case the plugin is activated in a weird way,
+  // or the versions change after activation.
+  // ***Note that normally is_plugin_active function is manually added here because
+  //    the file in which is_plugin_active() is defined – wp-admin/includes/plugin.php –
+  //    is only loaded in the admin, after a plugin is loaded
+  public function check_version($plugin_base_name)
+  {
+    if (!self::compatible_version()) {
+      //$test = (array)get_option('active_plugins', array());
+      if (self::is_plugin_active($plugin_base_name)) { //plugin_basename(__FILE__)
+        deactivate_plugins($plugin_base_name); //plugin_basename(__FILE__)
+        add_action('admin_notices', array($this, 'disabled_notice'));
+
+        if (isset($_GET['activate'])) {
+          unset($_GET['activate']);
+        }
+      }
+    }
+  }
+
+  function disabled_notice()
+  {
+    echo '<strong>' . esc_html__('This Plugin requires WordPress 3.7 or higher!', get_plugin_name()) . '</strong>';
+  }
+
+  static function compatible_version()
+  {
+    if (version_compare($GLOBALS['wp_version'], '9.7', '<')) {
+      return false;
+    }
+
+    // Add sanity checks for other version requirements here
+    if (version_compare(phpversion(), '5.5.19', '<')) {
+      //echo '<strong style="color: red;">' . __('Upgrade to PHP version 5.5.19 or higher.', 'tls12ct') . '</strong>';
+      return false;
+    }
+
+    if (!function_exists('curl_version'))
+      return false;
+    // echo '<span style="color: green;">' . __('cURL not installed.', 'tls12ct') . '</span>';
+    $curl_version = curl_version();
+    //echo $curl_version['version'];
+    //echo __('Make sure you are running OpenSSL/1.0.1 or higher, NSS/3.15.1 or higher, or the latest version of other cryptographic libraries.', 'tls12ct');
+
+    if (version_compare($curl_version['version'], '7.34.0', '>=')) {
+      //echo '<span style="color: green;">' . __('cURL version 7.34.0 or higher detected.', 'tls12ct') . '</span>';
+    } else {
+      //echo '<strong style="color: red;">' . __('Upgrade to cURL version 7.34.0 or higher.', 'tls12ct') . '</strong>';
+      return false;
+    }
+    return true;
+  }
+
+  /**
+   * The name of the plugin used to uniquely identify it within the context of
+   * WordPress and to define internationalization functionality.
+   *
+   * @since     1.0.0
+   * @return    string    The name of the plugin.
+   */
+  public function get_plugin_name()
+  {
+    return $this->plugin_name;
+  }
+}
