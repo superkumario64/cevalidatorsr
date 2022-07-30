@@ -141,9 +141,6 @@ class CeValidationsr_Public
      * between the defined hooks and the functions defined in this
      * class.
      */
-    wp_enqueue_style('sharetechmonofont', 'https://fonts.googleapis.com/css?family=Share+Tech+Mono', false);
-    wp_enqueue_style('bootstrap3csscdn', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', false);
-    wp_enqueue_style('bootstrap3cssthemecdn', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css', false);
     // wp_enqueue_style('validationpubliccss', plugin_dir_url(__FILE__) . 'css/cevalidationsr-public.css', array(), $this->version, 'all');
     wp_enqueue_style('validationpubliccss', plugin_dir_url(__FILE__) . 'css/cevalidationsr-public.css', false);
   }
@@ -174,7 +171,6 @@ class CeValidationsr_Public
     wp_localize_script($this->plugin_name, 'cevalidationsr', array('ajax_url' => admin_url('admin-ajax.php', ((is_ssl()) ? 'https' : 'http'))));
     // wp_enqueue_script('jquery321', get_template_directory_uri() . '/js/jquery-3.2.1.min.js', array(), '3.2.1', true);
     wp_enqueue_script('maskedinput', plugin_dir_url(__FILE__) . 'js/jquery.maskedinput.min.js', array('jquery'), $this->version, false, false);
-    wp_enqueue_script('bootstrap3jscdn', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js', array('jquery'), false, false);
   }
 
   /**
@@ -308,6 +304,7 @@ class CeValidationsr_Public
           $major = $item[0]['Major1'] == "" ? "" : $item[0]['Major1'] . "<br />";
           $honor = $item[0]['Honor1'] == "" ? "" : $item[0]['Honor1'] . "<br />";
           $credential = $this->replaceLast('<br />', '', $degree . $major . $honor);
+          error_log(print_r($item[0], true));
           $tbody = "<tbody>" .
             "<tr><td style='width:25%'>" . "<b>CeDiD:</b>" . "</td><td style='width:75%'>" . $item[0]['CeDiplomaID'] . "</td></tr>" .
             $schoolName .

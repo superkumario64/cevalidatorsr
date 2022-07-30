@@ -38,7 +38,7 @@
             var dateToPrint = now.toUTCString();
 
             // Retrieve parameters from page to call API
-            var ceDiD = $("#CeDiD").val();
+            var ceDiD = $("#CeDiDNumber").val();
 
             // Call Validation API
             $.ajax({

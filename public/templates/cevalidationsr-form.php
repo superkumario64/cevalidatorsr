@@ -22,29 +22,22 @@ if (!defined('ABSPATH')) {
 		</div>
 	</div> -->
 
-<div class="row">
-  <div class="col-md-12">
-
-    <div class="form-horizontal">
-
-      <div class="col-md-6">
-
-        <div class="form-group">
-          <div class="col-md-6 labelgray">
-            <label><b>Please enter CeDiD</b><br />(not case sensitive)</label>
-          </div>
-          <div class="col-md-5">
-            <input class="CeDiDNumber text-box single-line" data-masked-input="wwww-wwww-wwww" data-val="true"
-              data-val-regex="____-____-____ format required."
-              data-val-regex-pattern="(([a-zA-Z0-9]{4})[-]([a-zA-Z0-9]{4})[-]([a-zA-Z0-9]{4}))"
-              data-val-required="The CeDiD field is required." id="CeDiD" maxlength="14" name="CeDiD"
-              placeholder="____-____-____" type="text" value="" style="width:246px; min-width:246px;" />
-            <div class="AlphaNumericKey">
-              <img id="SUCeDiDNumbers"
-                src=https://cedimages.blob.core.windows.net/publicimages/Content/Images/CeDiplomaImages/AlphaNumericKey_221x22.png
-                alt="Alphanumeric Key" />
-            </div>
-          </div>
+<div class="cev-form-wrapper">
+  <div class="">
+    <div class="cev-form-horizontal">
+      <div class="col-md-6 labelgray">
+        <label for="CeDiDNumber"><b>Please enter CeDiD</b><br />(not case sensitive)</label>
+      </div>
+      <div class="col-md-5">
+        <input class="CeDiDNumber text-box single-line" id="CeDiDNumber" data-masked-input="wwww-wwww-wwww" data-val="true"
+          data-val-regex="____-____-____ format required."
+          data-val-regex-pattern="(([a-zA-Z0-9]{4})[-]([a-zA-Z0-9]{4})[-]([a-zA-Z0-9]{4}))"
+          data-val-required="The CeDiD field is required." id="CeDiD" maxlength="14" name="CeDiD"
+          placeholder="____-____-____" type="text" value="" style="width:246px; min-width:246px;" />
+        <div class="AlphaNumericKey">
+          <img id="SUCeDiDNumbers"
+            src=https://cedimages.blob.core.windows.net/publicimages/Content/Images/CeDiplomaImages/AlphaNumericKey_221x22.png
+            alt="Alphanumeric Key" />
         </div>
       </div>
     </div>
@@ -54,7 +47,7 @@ if (!defined('ABSPATH')) {
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
-          <input type="button" id="Validate" value="Validate" class="cevalidate btn btn-success"
+          <input type="button" id="Validate" value="Validate" class="cevalidate cevalidate-btn"
             title="Validate Credential" />
         </div>
 

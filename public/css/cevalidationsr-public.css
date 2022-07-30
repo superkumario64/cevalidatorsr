@@ -3,37 +3,9 @@
  * included in this file.
  */
 
-body {
-    font-size: 14px !important;
-    /* font-family: 'Share Tech Mono', monospace; */
-}
 
 .table-striped>tbody>tr:nth-child(odd)>td {
     background-color: #ffffb9 !important;
-}
-
-.button,
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-    font-size: 14px !important;
-}
-
-.well {
-    background-color: #ffffb9 !important;
-}
-
-.modal-dialog {
-    width: 320px;
-}
-
-.outercenter {
-    text-align: center;
-}
-
-.outercenter img {
-    display: inline-block;
 }
 
 .CeDiDNumber {
@@ -50,13 +22,6 @@ input[type="submit"] {
     padding-bottom: 6px;
 }
 
-hr>.hr-gray {
-    margin-top: 0;
-    margin-bottom: 12px;
-    border: 0;
-    border-top: 1px solid #999;
-}
-
 .labelgray {
     border-radius: 0.3em;
     background-color: #666666;
@@ -66,31 +31,7 @@ hr>.hr-gray {
     line-height: 1.1em;
     padding: 0.2em 0.6em 0.2em 0.6em;
     margin: 0 0 0.2em 0;
-}
-
-.marginleft-30 {
-    margin-left: -30px !important;
-}
-
-.padleftright0 {
-    padding-left: 0;
-    padding-right: 0;
-}
-
-.popover-content,
-.popover-title {
-    color: #000000 !important;
-    /*black color*/
-}
-
-.btn-group {
-    font-size: 12px;
-    /*or whatever size */
-}
-
-.text-warning {
-    /*color: #8a6d3b;*/
-    margin: 18px 0 10px;
+    height: fit-content;
 }
 
 #successfail_result {
@@ -127,55 +68,6 @@ hr>.hr-gray {
     font-size: 1.2381rem;
 }
 
-#crecredential_info {
-    font-size: 1.4rem;
-}
-
-.button,
-.image-button {
-    margin-left: 0 !important;
-}
-
-.button:hover,
-.button:focus {
-    background-color: #204d74;
-    background-image: none !important;
-    background-image: none !important;
-    color: #fff;
-    text-decoration: none;
-    outline: none;
-}
-
-input#edit-actions:hover {
-    color: #fff !important;
-    background-color: #286090 !important;
-    border-color: #204d74 !important;
-}
-
-input#edit-actions.focus,
-input#edit-actions:focus {
-    color: #fff !important;
-    background-color: #286090 !important;
-    border-color: #204d74 !important;
-}
-
-.btn-primary:hover {
-    color: #fff !important;
-    background-color: #286090 !important;
-    border-color: #204d74 !important;
-}
-
-.btn-primary.focus,
-.btn-primary:focus {
-    color: #fff !important;
-    background-color: #286090 !important;
-    border-color: #122b40 !important;
-}
-
-.margintop15 {
-    margin-top: 15px;
-}
-
 div#SULogo>a,
 div#SULogo>a:active,
 div#SULogo>a:focus,
@@ -184,15 +76,71 @@ div#SULogo>a:hover {
     text-decoration: none !important;
 }
 
-.entry-content hr hr-gray {
-    margin-top: 0;
-    margin-bottom: 12px;
-    border: 0;
-    border-top: 1px solid #999;
+.cev-form-wrapper {
+    max-width: 50%;
 }
 
-@media print {
-    footer {
-        display: none;
-    }
+.cev-form-horizontal {
+    display: grid;
+    grid-template-columns: 3fr 4fr;
+    column-gap: 1rem;
 }
+
+.cevalidate-btn {
+    cursor: pointer;
+    outline: 0;
+    color: #fff;
+    background-color: #4aa24a;
+    border-color: #3e8f3e;
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    font-size: 16px;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.cevalidate-btn:hover {
+    color: #fff;
+    border-color: #398439;
+    background-color: #419641;
+}
+.well {
+    color: rgb(51, 51, 51);
+    background-image: linear-gradient(rgb(232, 232, 232) 0px, rgb(245, 245, 245) 100%);
+    border-bottom-color: rgb(220, 220, 220);
+    padding: 19px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border: 1px solid #e3e3e3;
+}
+
+#result_table {
+    width: 140%;
+    border-collapse: collapse;
+    margin-bottom: 35px;
+}
+
+#result_table tr {
+    border-top: 1px solid rgb(221, 221, 221);
+    border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+#result_table tr td {
+    padding: 8px;
+}
+
+
+@media (max-width: 1024px) {
+    .cev-form-horizontal {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .cev-form-wrapper {
+        padding-left: 10px;
+    }
+ }
