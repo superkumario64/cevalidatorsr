@@ -16,7 +16,7 @@
  * Plugin Name:       CeValidationsr
  * Plugin URI:        localhost:9210
  * Description:       CeCredential validation page with optional ScholarRecord via CeCredentialTrust.com Web API.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            R. A. Joseph
  * Author URI:        https://www.cecredentialtrust.com
  * License:           GPL-2.0+
