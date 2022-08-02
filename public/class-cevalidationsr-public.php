@@ -301,10 +301,29 @@ class CeValidationsr_Public
           $utcDateTime = gmdate("Y-m-d H:i:s");
           $schoolName = $item[0]['SchoolName'] == '' ? '' :'<tr><td>' . '<b>School:</b>' . '</td><td>' . $item[0]['SchoolName'] . '</td></tr>';
           $degree = $item[0]['Degree1'] == '' ? '' : $item[0]['Degree1'] . '<br />';
+          $degree .= $item[0]['Degree2'] == '' ? '' : $item[0]['Degree2'] . '<br />';
+          $degree .= $item[0]['Degree3'] == '' ? '' : $item[0]['Degree3'] . '<br />';
+          $degree .= $item[0]['Degree4'] == '' ? '' : $item[0]['Degree4'] . '<br />';
+          $degree .= $item[0]['Degree5'] == '' ? '' : $item[0]['Degree5'] . '<br />';
           $major = $item[0]['Major1'] == "" ? "" : $item[0]['Major1'] . "<br />";
+          $major .= $item[0]['Major2'] == "" ? "" : $item[0]['Major2'] . "<br />";
+          $major .= $item[0]['Major3'] == "" ? "" : $item[0]['Major3'] . "<br />";
+          $major .= $item[0]['Major4'] == "" ? "" : $item[0]['Major4'] . "<br />";
+          $major .= $item[0]['Major5'] == "" ? "" : $item[0]['Major5'] . "<br />";
+          $major .= $item[0]['Major6'] == "" ? "" : $item[0]['Major6'] . "<br />";
+          $major .= $item[0]['Major7'] == "" ? "" : $item[0]['Major7'] . "<br />";
+          $major .= $item[0]['Major8'] == "" ? "" : $item[0]['Major8'] . "<br />";
+          $major .= $item[0]['Major9'] == "" ? "" : $item[0]['Major9'] . "<br />";
           $honor = $item[0]['Honor1'] == "" ? "" : $item[0]['Honor1'] . "<br />";
+          $honor .= $item[0]['Honor2'] == "" ? "" : $item[0]['Honor2'] . "<br />";
+          $honor .= $item[0]['Honor3'] == "" ? "" : $item[0]['Honor3'] . "<br />";
+          $honor .= $item[0]['Honor4'] == "" ? "" : $item[0]['Honor4'] . "<br />";
+          $honor .= $item[0]['Honor5'] == "" ? "" : $item[0]['Honor5'] . "<br />";
+          $honor .= $item[0]['Honor6'] == "" ? "" : $item[0]['Honor6'] . "<br />";
+          $honor .= $item[0]['Honor7'] == "" ? "" : $item[0]['Honor7'] . "<br />";
+          $honor .= $item[0]['Honor8'] == "" ? "" : $item[0]['Honor8'] . "<br />";
+          $honor .= $item[0]['Honor9'] == "" ? "" : $item[0]['Honor9'] . "<br />";
           $credential = $this->replaceLast('<br />', '', $degree . $major . $honor);
-          error_log(print_r($item[0], true));
           $tbody = "<tbody>" .
             "<tr><td style='width:25%'>" . "<b>CeDiD:</b>" . "</td><td style='width:75%'>" . $item[0]['CeDiplomaID'] . "</td></tr>" .
             $schoolName .
