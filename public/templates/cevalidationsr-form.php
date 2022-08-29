@@ -54,7 +54,7 @@ if (!defined('ABSPATH')) {
         <div class="form-group padtop0">
           <div class="col-md-12">
             <a href="https://secure.cecredentialtrust.com" target="_blank"><img id="SULogoimg1" height="50"
-                src=https://cedimages.blob.core.windows.net/publicimages/Content/Images/CeDiplomaImages/poweredbyCeCredentialTrustLogo_180x34.png
+                src=https://cedimages.blob.core.windows.net/publicimages/Content/Images/CeDiplomaImages/poweredbyCeCredentialTrustLogo_251x50.png
                 alt="Powered by CeCredential TRUST"></a>
           </div>
         </div>

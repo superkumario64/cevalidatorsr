@@ -74,7 +74,7 @@
         return '<div class="well"><ul>' +
             '<li>We cannot validate the Credential at this time.</li>' +
             '<li>The information provided does not match the information on record, or there was a connection error.</li>' +
-            '<li>Please contact your institution for assistance. Please provide the student name and CeDiD.</li>' +
+            '<li>Please contact <a href="registrar@ucsc.edu">registrar@ucsc.edu</a> for assistance. Please provide the student name and CeDiD.</li>' +
             '</ul></div>';
     }
 

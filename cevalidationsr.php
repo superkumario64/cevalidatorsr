@@ -16,7 +16,7 @@
  * Plugin Name:       CeValidationsr
  * Plugin URI:        localhost:9210
  * Description:       CeCredential validation page with optional ScholarRecord via CeCredentialTrust.com Web API.
- * Version:           1.0.3
+ * Version:           1.0.4
  * Author:            R. A. Joseph
  * Author URI:        https://www.cecredentialtrust.com
  * License:           GPL-2.0+
@@ -35,7 +35,7 @@ if (!defined('WPINC')) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define('CEVALIDATIONSR_VERSION', '1.0.3');
+define('CEVALIDATIONSR_VERSION', '1.0.4');
 
 /**
  * The code that runs during plugin activation.
