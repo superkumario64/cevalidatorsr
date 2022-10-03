@@ -298,7 +298,6 @@ class CeValidationsr_Public
       if (wp_remote_retrieve_response_code($result) === 200) {
         $item = json_decode(wp_remote_retrieve_body($result), true);
         if ($item[0]['ValidStatus'] === "VALID") {
-          $utcDateTime = gmdate("Y-m-d H:i:s");
           $schoolName = $item[0]['SchoolName'] == '' ? '' :'<tr><td>' . '<b>School:</b>' . '</td><td>' . $item[0]['SchoolName'] . '</td></tr>';
           $degree = $item[0]['Degree1'] == '' ? '' : $item[0]['Degree1'] . '<br />';
           $degree .= $item[0]['Degree2'] == '' ? '' : $item[0]['Degree2'] . '<br />';
@@ -333,7 +332,7 @@ class CeValidationsr_Public
             "</tbody>";
           $tbodyHtml = preg_replace('/\s+/', ' ', $tbody);
           $output['result_table'] = $tbodyHtml;
-          $output['successfail_result'] = "<br /><b>This is a Valid Credential</b><br />Validated: " . $utcDateTime;
+          $output['successfail_result'] = "<br /><b>This is a Valid Credential</b><br />Validated: ";
 
           $hostedvalidationurl=$item[0]['HostedValidationUrl'];
           if ($hostedvalidationurl != "") {
